@@ -1,0 +1,84 @@
+<div class="forny-container">
+
+  <div class="forny-inner">
+    <form class="form-auth-small" [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="form-group">
+        <label for="signin-email" class="control-label sr-only">Nom d'utilisateur</label>
+        <input type="text" class="form-control" id="signin-email" formControlName="username"
+               placeholder="nom d'utilisateur" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">username is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="signin-password" class="control-label sr-only">nom</label>
+        <input type="text" class="form-control" id="signin-password" formControlName="nom"
+               placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }"/>
+        <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+          <div *ngIf="f.nom.errors.required">nom is required</div>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="signin-password" class="control-label sr-only">prenom</label>
+        <input type="text" class="form-control" id="signin-password" formControlName="prenom"
+               placeholder="prenom" [ngClass]="{ 'is-invalid': submitted && f.prenom.errors }"/>
+        <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+          <div *ngIf="f.prenom.errors.required">prenom is required</div>
+
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label for="signin-password" class="control-label sr-only">adresse</label>
+        <input type="password" class="form-control" id="signin-password" formControlName="adresse"
+               placeholder="adresse" [ngClass]="{ 'is-invalid': submitted && f.adresse.errors }"/>
+        <div *ngIf="submitted && f.adresse.errors" class="invalid-feedback">
+          <div *ngIf="f.adresse.errors.required">adresse is required</div>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label for="signin-password" class="control-label sr-only">tel</label>
+        <input type="text" class="form-control" id="signin-password" formControlName="tel"
+               placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.tel.errors }"/>
+        <div *ngIf="submitted && f.tel.errors" class="invalid-feedback">
+          <div *ngIf="f.tel.errors.required">tel is required</div>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label for="signin-password" class="control-label sr-only">email</label>
+        <input type="email" class="form-control" id="signin-password" formControlName="email"
+               placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">email is required</div>
+          <div *ngIf="f.email.errors.email">email invalid</div>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label for="signin-email" class="control-label sr-only">fax</label>
+        <input type="text" class="form-control" id="signin-email" formControlName="fax"
+               placeholder="nom d'utilisateur" [ngClass]="{ 'is-invalid': submitted && f.fax.errors }"/>
+        <div *ngIf="submitted && f.fax.errors" class="invalid-feedback">
+          <div *ngIf="f.fax.errors.required">fax is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="signin-password" class="control-label sr-only">Password</label>
+        <input type="password" class="form-control" id="signin-password" formControlName="password"
+               placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">password is required</div>
+          <div *ngIf="f.password.errors.minlength">password must be 6 caracter</div>
+        </div>
+
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg btn-block">register</button>
+
+    </form>
+  </div>
+
+</div>

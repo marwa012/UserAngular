@@ -1,0 +1,44 @@
+
+
+
+<div class="col-md-9 b-l">
+  <div class="m-md-3">
+   Message Start
+    <div class="card b-0 m-2">
+      <div class="card-body">
+        <div data-toggle="collapse" >
+          <div class="media">
+            <img class="d-flex mr-3 height-50"  src="http://localhost:9000/upload/files/{{demande?.etudiant?.photo}}" alt="Generic placeholder image">
+            <div class="media-body">
+              <h6 class="mt-0 mb-1 font-weight-normal">{{demande?.etudiant.nom}} {{demande?.etudiant.prenom}}</h6>
+                 <br>
+              <small> reçu le{{demande.createdAt|date}}</small>
+              <div class="collapse my-3 show">
+                <div>
+                  <p>{{demande.stage.sujet}}</p>
+                  <p>{{demande.stage.description}}
+                 </p>
+                  <p>Thanks,<br>MONSIEUR {{demande?.enseignant?.nom}}</p>
+                </div>
+
+                 <div class="btn-group float-right" *ngIf="demande.etat=='enatande'">
+                  <a class="btn btn-success btn-xs" (click)="accepter(demande.id)">accepter</a>
+                  <a class="btn btn-danger btn-xs" (click)="refuser(demande.id)">refuser</a>
+
+                </div>
+                <div class="btn-group float-right" *ngIf="demande.etat=='refuser'">
+                  <a class="btn btn-success btn-xs" routerLink="/home/demande">retour</a>
+
+
+                </div>
+                <div class="btn-group float-right" *ngIf="demande.etat=='acepter'">
+                  <a class="btn btn-success btn-xs" routerLink="/home/demande">retour</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

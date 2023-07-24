@@ -1,0 +1,114 @@
+
+
+
+<div *ngIf="role!=='enseignant'">
+      <div class="modal-header">
+        <h6 class="title" id="defaultModalLabel">Ajout demande</h6>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="demandeForm" (ngSubmit)="ajoudemende()">
+          <div class="row clearfix">
+
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <select formControlName="idenseigant" class="form-control show-tick">
+                  <option value={{enseignant.id_utilisateur}} *ngFor="let enseignant of listenseignant">{{enseignant.nom}} </option>
+
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <select formControlName="idstage" class="form-control show-tick">
+                  <option value={{stage.id}} *ngFor="let stage of Listestage">{{stage.theme}} </option>
+
+                </select>
+              </div>
+            </div>
+
+
+
+          </div>
+
+
+
+
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+          </div>
+        </form>
+
+      </div>
+
+</div>
+
+<div class="container-fluid animatedParent animateOnce" >
+  <div class="tab-content my-3" id="v-pills-tabContent" >
+
+
+      <div class="row my-3" >
+        <div class="col-md-12" *ngIf="role=='enseignant'">
+          <div class="card r-0 shadow">
+            <div class="table-responsive">
+              <form>
+                <table class="table table-striped table-hover r-0">
+                  <thead>
+                  <tr class="no-b">
+<th>photo</th>
+                    <th>Nom Etudiant</th>
+                    <th>Prenom Etudiant</th>
+                    <th>Niveau</th>
+                    <th>Sujet</th>
+
+                    <th>date reception</th>
+                    <th>etat</th>
+                    <td>voir detail</td>
+
+                  </tr>
+                  </thead>
+
+                  <tbody>
+
+                  <tr *ngFor="let demande of listdemande">
+
+                    <td>
+                      <div class="avatar avatar-md mr-3 mt-1 float-left">
+                        <img src="http://localhost:9000/upload/files/{{demande?.etudiant?.photo}}"   alt="">
+                      </div>
+
+                    </td>
+
+                    <td>{{demande.etudiant.nom}}</td>
+                    <td>{{demande.etudiant.prenom}}</td>
+
+                    <td>{{demande.etudiant.niveau}}</td>
+                    <td><span>{{demande.stage.sujet}}</span></td>
+                    <td><span class="r-3 badge badge-success ">{{demande.createdAt|date}}</span></td>
+                    <td><span class="icon icon-circle s-12  mr-2 text-warning" *ngIf="demande.etat=='enatande'"></span>
+                    <span class="icon icon-circle s-12  mr-2 text-danger" *ngIf="demande.etat=='refuser'"></span>
+                    <span class="icon icon-circle s-12  mr-2 text-info"  *ngIf="demande.etat=='acepter'" ></span>
+                      {{demande.etat}}</td>
+                    <td>
+                      <a routerLink="/home/detail/{{demande.id}}" class="btn btn-sm btn-outline-primary"><i class="icon-eye"></i></a>
+
+
+
+                    </td>
+
+
+                  </tr>
+
+
+                  </tbody>
+                </table>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div></div>
+
